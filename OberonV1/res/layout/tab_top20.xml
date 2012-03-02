@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+<TextView   
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="SDK2.1 Oberon Demo" 
+    />
+    <TextView  
+    android:id="@+id/mySelection" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:background="#ff0000ff"
+    android:textSize="20px" android:textStyle="bold"/>  
+<Gallery 
+        android:id="@+id/myGallery" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+    	android:gravity="bottom"
+    	android:spacing="1dp"
+        /> 
+</LinearLayout>
