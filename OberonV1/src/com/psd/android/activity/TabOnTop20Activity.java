@@ -27,7 +27,7 @@ public class TabOnTop20Activity extends Activity {
 
  	TextView mySelection;
 	Gallery myGallery;
-	int currentPos = 0;
+	int currentPos = 2;
 	ImageAdapter imageAdp;
 	public int[] myImageIds00 = { R.drawable.game1,R.drawable.game2,R.drawable.dl_01, R.drawable.dl_02,R.drawable.dl_03,R.drawable.dl_04,
 			R.drawable.game4,R.drawable.game5,R.drawable.game6};
@@ -76,6 +76,9 @@ public class TabOnTop20Activity extends Activity {
 
 
 		});
+		
+		//set currentPos
+		myGallery.setSelection(currentPos);
 	}// onCreate
 
 	public class ImageAdapter extends BaseAdapter {
@@ -168,8 +171,8 @@ public class TabOnTop20Activity extends Activity {
 			//iv.setScaleType(ImageView.ScaleType.CENTER);
 			//iv.setScaleType(ImageView.ScaleType.CENTER_CROP);			
 			//iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-			iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
-			//iv.setScaleType(ImageView.ScaleType.FIT_XY);
+			//iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+			iv.setScaleType(ImageView.ScaleType.FIT_XY);
 			//iv.setScaleType(ImageView.ScaleType.FIT_END);
 			
 			// Set the Width & Height of the individual images
@@ -178,7 +181,7 @@ public class TabOnTop20Activity extends Activity {
 			
 	        /* Image should be scaled as width/height are set. */
 			 
-	        iv.setScaleType(ImageView.ScaleType.CENTER);
+	        //iv.setScaleType(ImageView.ScaleType.CENTER);
 	 
 	        /* Set the Width/Height of the ImageView. */
 	 

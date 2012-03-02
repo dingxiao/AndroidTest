@@ -23,9 +23,14 @@ public class OberonV1Activity extends TabActivity {
         intent = new Intent().setClass(this, TabOnNewActivity.class);
 
         // Initialize a TabSpec for each tab and add it to the TabHost
-        spec = tabHost.newTabSpec("new").setIndicator("New",
-                          res.getDrawable(R.drawable.ic_tab_new))
+        spec = tabHost.newTabSpec("iplay").setIndicator("",
+                          res.getDrawable(R.drawable.star_big_on))
                       .setContent(intent);
+        tabHost.addTab(spec);
+        
+        spec = tabHost.newTabSpec("new").setIndicator("New",
+                res.getDrawable(R.drawable.ic_tab_new))
+            .setContent(intent);
         tabHost.addTab(spec);
 
         // Do the same for the other tabs
@@ -40,7 +45,16 @@ public class OberonV1Activity extends TabActivity {
                           res.getDrawable(R.drawable.ic_tab_puzzle))
                       .setContent(intent);
         tabHost.addTab(spec);
+        
+        //just add some dummy using same content
+        spec = tabHost.newTabSpec("timeman").setIndicator("Time Management", res.getDrawable(R.drawable.ic_tab_puzzle)).setContent(intent);
+        tabHost.addTab(spec);
+        spec = tabHost.newTabSpec("advanture").setIndicator("Adventure", res.getDrawable(R.drawable.ic_tab_puzzle)).setContent(intent);
+        tabHost.addTab(spec);
+        
+        spec = tabHost.newTabSpec("Mahjong").setIndicator("Mahjong", res.getDrawable(R.drawable.ic_tab_puzzle)).setContent(intent);
+        tabHost.addTab(spec);
 
-        tabHost.setCurrentTab(2);
+        tabHost.setCurrentTab(3);
     }
 }

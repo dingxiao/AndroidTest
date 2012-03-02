@@ -18,8 +18,7 @@
 <Gallery 
         android:id="@+id/myGallery" 
         android:layout_width="fill_parent" 
-        android:layout_height="wrap_content" 
-    	android:gravity="bottom"
-    	android:spacing="1dp"
+         android:layout_height="200dp" 
+        android:gravity="center_vertical" 
         /> 
 </LinearLayout>

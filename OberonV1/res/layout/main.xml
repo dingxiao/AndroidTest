@@ -8,6 +8,15 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding="5dp">
+	    <TextView  
+	    android:id="@+id/mySelection" 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:background="#ffdcdcdc"
+	    android:textColor="#ff121212"
+	    android:text="Welcome, Bob | My Queue | My Game"
+	    android:textSize="20px" android:textStyle="bold"/>  
+	    
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"

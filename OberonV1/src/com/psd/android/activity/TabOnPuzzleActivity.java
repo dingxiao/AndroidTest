@@ -32,10 +32,11 @@ import android.widget.AdapterView.OnItemSelectedListener;
  */
 public class TabOnPuzzleActivity extends Activity {
  	TextView mySelection;
+ 	TextView puzzleRecommend;
 	Gallery myGallery;
-	static int currentPos = 1;
+	static int currentPos = 2;
 	ImageAdapter imageAdp;
-	public int[] myImageIds00 = { R.drawable.game1,R.drawable.game2,R.drawable.dl_01, R.drawable.dl_02,R.drawable.dl_03,R.drawable.dl_04,
+	public int[] myImageIds00 = { R.drawable.game1,R.drawable.game2, R.drawable.dl_04,R.drawable.dl_01, R.drawable.dl_02,R.drawable.dl_03,
 			R.drawable.game4,R.drawable.game5,R.drawable.game6};
 	
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class TabOnPuzzleActivity extends Activity {
 		
 		//get this layout textview
 		mySelection = (TextView) findViewById(R.id.puzzleSelection);		
-		
+		puzzleRecommend = (TextView) findViewById(R.id.puzzleRecommend);		
+		puzzleRecommend.setText("Recommended for you-- some games below");
 		// Bind the gallery defined in the tab_puzzle.xml
 		// Apply a new (customized) ImageAdapter to it.
 		myGallery = (Gallery) findViewById(R.id.puzzleGallery);
@@ -88,6 +90,8 @@ public class TabOnPuzzleActivity extends Activity {
 
 		     public void  onItemSelected  (AdapterView<?>  parent, View  v, int position, long id) {
 		        View sideView = parent.findViewById(last);
+		        
+		        mySelection.setText(" selected option: " + position);
 		        if (sideView != null && last != position){
 		           sideView.clearAnimation();
 		           sideView.setLayoutParams(new Gallery.LayoutParams(200, 100));
