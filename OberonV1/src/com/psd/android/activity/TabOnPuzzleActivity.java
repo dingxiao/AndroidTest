@@ -54,7 +54,7 @@ public class TabOnPuzzleActivity extends Activity {
 		myGallery.setAdapter(imageAdp);
 		
 		myGallery.setOnItemSelectedListener(new OnItemSelectedListener() {
-
+			/*
 			   public void  onItemSelected  (AdapterView<?>  parent, View  v, int position, long id) {
 			        Animation grow = AnimationUtils.loadAnimation(TabOnPuzzleActivity.this, R.anim.grow);
 
@@ -74,7 +74,29 @@ public class TabOnPuzzleActivity extends Activity {
 			        System.out.println("NOTHING SELECTED");
 
 			    }
+			*/
+		     private Animation grow = AnimationUtils.loadAnimation(TabOnPuzzleActivity.this, R.anim.grow);
+		     private int last = currentPos;
 
+		     public void  Select() {
+		        grow = AnimationUtils.loadAnimation(TabOnPuzzleActivity.this, R.anim.grow);
+		        last = 0;
+		     }
+
+		     public void  onItemSelected  (AdapterView<?>  parent, View  v, int position, long id) {
+		        View sideView = parent.findViewById(last);
+		        if (sideView != null && last != position){
+		           sideView.clearAnimation();
+		           sideView.setLayoutParams(new Gallery.LayoutParams(200, 100));
+		        }
+		        v.startAnimation(grow);
+		        v.setLayoutParams(new Gallery.LayoutParams(300, 150));
+		        last = position;
+		     }
+
+		    public void  onNothingSelected  (AdapterView<?>  parent) {
+		    }
+			
 
 		});
 		myGallery.setSelection(currentPos, false);
@@ -148,9 +170,9 @@ public class TabOnPuzzleActivity extends Activity {
 		       
 			int selected = this.getSelectPos();
 	        imageView.setImageResource(myImageIds[position]);
-	        if (position == 1)
-	        imageView.setLayoutParams(new Gallery.LayoutParams(600, 200));
-	        else
+	        //if (position == currentPos)
+	        //imageView.setLayoutParams(new Gallery.LayoutParams(600, 200));
+	        //else
 	        imageView.setLayoutParams(new Gallery.LayoutParams(200, 100));
 	        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 	        imageView.setBackgroundResource(mGalleryItemBackground);
