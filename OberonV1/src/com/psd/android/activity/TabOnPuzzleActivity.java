@@ -42,6 +42,8 @@ public class TabOnPuzzleActivity extends Activity {
 	static int imageSelectedHeight = 180;
 	static int imageNormalHeight = 140;
 	static int imageLeftRighlHeight = 160;
+	static int imageGamedWidth = 150;
+	static int imageGameHeight = 100;
 	static int currentPos = 3;
 	ImageAdapter imageAdp;
 	SimpleImageAdapter gameImageAdp;
@@ -329,7 +331,7 @@ public class TabOnPuzzleActivity extends Activity {
 	        ImageView imageView = new ImageView(mContext);
 
 	        imageView.setImageResource(mImageIds[position]);
-	        imageView.setLayoutParams(new Gallery.LayoutParams(150, 100));
+	        imageView.setLayoutParams(new Gallery.LayoutParams(imageGamedWidth, imageGameHeight));
 	        //imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 	        imageView.setScaleType(ImageView.ScaleType.CENTER);
 			//iv.setScaleType(ImageView.ScaleType.CENTER_CROP);			
