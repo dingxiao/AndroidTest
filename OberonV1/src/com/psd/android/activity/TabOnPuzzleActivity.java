@@ -25,6 +25,7 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 /**
  * @author ding xiao
@@ -34,10 +35,20 @@ public class TabOnPuzzleActivity extends Activity {
  	TextView mySelection;
  	TextView puzzleRecommend;
 	Gallery myGallery;
-	static int currentPos = 2;
+	Gallery gameGallery;
+	static int imageNormalWidth = 120;
+	static int imageLeftRighlWidth = 120;
+	static int imageSelectedWidth = 540;
+	static int imageSelectedHeight = 180;
+	static int imageNormalHeight = 140;
+	static int imageLeftRighlHeight = 160;
+	static int currentPos = 3;
 	ImageAdapter imageAdp;
+	SimpleImageAdapter gameImageAdp;
 	public int[] myImageIds00 = { R.drawable.game1,R.drawable.game2, R.drawable.dl_04,R.drawable.dl_01, R.drawable.dl_02,R.drawable.dl_03,
 			R.drawable.game4,R.drawable.game5,R.drawable.game6};
+	public int[] gameImageIds00 = { R.drawable.game1,R.drawable.game2, R.drawable.game3,R.drawable.game5,R.drawable.game6,R.drawable.game7,
+			R.drawable.game4,R.drawable.game5,R.drawable.game6,R.drawable.game7,R.drawable.game8,R.drawable.game9};
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,13 +105,13 @@ public class TabOnPuzzleActivity extends Activity {
 		        mySelection.setText(" selected option: " + position);
 		        if (sideView != null && last != position){
 		           sideView.clearAnimation();
-		           sideView.setLayoutParams(new Gallery.LayoutParams(200, 100));
+		           sideView.setLayoutParams(new Gallery.LayoutParams(imageNormalWidth, imageNormalHeight));
 		        }
 		        if (last > 0){
 		        	sideView = parent.findViewById(last - 1);
 		        
 			        if (sideView != null){
-			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(200, 100));
+			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(imageNormalWidth, imageNormalHeight));
 			        	int padRight = sideView.getPaddingRight();
 			        	int padLeft = sideView.getPaddingLeft();
 			        	int padTop = sideView.getPaddingTop();
@@ -112,7 +123,7 @@ public class TabOnPuzzleActivity extends Activity {
 		        	sideView = parent.findViewById(last + 1);
 		        
 			        if (sideView != null){
-			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(200, 100));
+			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(imageNormalWidth, imageNormalHeight));
 			        	int padRight = sideView.getPaddingRight();
 			        	int padLeft = sideView.getPaddingLeft();
 			        	int padTop = sideView.getPaddingTop();
@@ -124,7 +135,7 @@ public class TabOnPuzzleActivity extends Activity {
 		        	sideView = parent.findViewById(position - 1);
 		        
 			        if (sideView != null){
-				        ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(100, 100));
+				        ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(imageLeftRighlWidth, imageLeftRighlHeight));
 			        	Matrix m = ((ImageView)sideView).getImageMatrix();
 			        	//m.postRotate(degrees);
 			        	//m.postTranslate(dx, dy);			        	
@@ -144,7 +155,7 @@ public class TabOnPuzzleActivity extends Activity {
 		        	sideView = parent.findViewById(position + 1);
 		        
 			        if (sideView != null){
-			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(100, 100));
+			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(imageLeftRighlWidth, imageLeftRighlHeight));
 			        	//MarginLayoutParams la = (MarginLayoutParams) sideView.getLayoutParams();
 			        	//left,top, right, bot
 			        	//la.setMargins(la.leftMargin-20, la.topMargin, la.rightMargin, la.bottomMargin);
@@ -156,7 +167,7 @@ public class TabOnPuzzleActivity extends Activity {
 			        }
 		        }
 		        v.startAnimation(grow);
-		        v.setLayoutParams(new Gallery.LayoutParams(300, 150));
+		        v.setLayoutParams(new Gallery.LayoutParams(imageSelectedWidth, imageSelectedHeight));
 		        last = position;
 		     }
 
@@ -166,6 +177,32 @@ public class TabOnPuzzleActivity extends Activity {
 
 		});
 		myGallery.setSelection(currentPos, false);
+		
+		
+		
+
+		//now for games, use another gallery
+		gameGallery = (Gallery) findViewById(R.id.puzzleGameGallery);
+
+		//myGallery.setAdapter(new ImageAdapter(this));
+		gameImageAdp = new SimpleImageAdapter(this);
+		gameImageAdp.setGameImageIds(gameImageIds00);
+		
+		gameGallery.setAdapter(gameImageAdp);
+		
+		gameGallery.setOnItemSelectedListener(new OnItemSelectedListener() {
+			
+			   public void  onItemSelected  (AdapterView<?>  parent, View  v, int position, long id) {
+		            Toast.makeText(TabOnPuzzleActivity.this, "This is game " + position, Toast.LENGTH_SHORT).show();
+			    }
+
+			    public void  onNothingSelected  (AdapterView<?>  parent) {
+			        System.out.println("NOTHING SELECTED");
+
+			    }
+		});		
+		gameGallery.setSelection(5);
+		
 	}// onCreate
 
 	public class ImageAdapter extends BaseAdapter {
@@ -239,9 +276,9 @@ public class TabOnPuzzleActivity extends Activity {
 	        //if (position == currentPos)
 	        //imageView.setLayoutParams(new Gallery.LayoutParams(600, 200));
 	        //else
-	        imageView.setLayoutParams(new Gallery.LayoutParams(200, 100));
+	        imageView.setLayoutParams(new Gallery.LayoutParams(imageNormalWidth, imageNormalHeight));
 	        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-	        imageView.setBackgroundResource(mGalleryItemBackground);
+	        //imageView.setBackgroundResource(mGalleryItemBackground);
 	        
 	        imageView.setId(position);
 	        return imageView;
@@ -254,4 +291,57 @@ public class TabOnPuzzleActivity extends Activity {
 	    }
 
 	}// ImageAdapter    
+	
+	
+
+	//simple version image from sdk
+	public class SimpleImageAdapter extends BaseAdapter {
+	    int mGalleryItemBackground;
+	    private Context mContext;
+
+	    public int[] mImageIds = null;
+	   
+
+	    public void setGameImageIds(int[] imgIds){
+	    	mImageIds = imgIds;
+	    }
+	    public SimpleImageAdapter(Context c) {
+	        mContext = c;
+	        TypedArray attr = mContext.obtainStyledAttributes(R.styleable.PuzzleGallery);
+	        mGalleryItemBackground = attr.getResourceId(
+	                R.styleable.PuzzleGallery_android_galleryItemBackground, 0);
+	        attr.recycle();
+	    }
+
+	    public int getCount() {
+	        return mImageIds.length;
+	    }
+
+	    public Object getItem(int position) {
+	        return position;
+	    }
+
+	    public long getItemId(int position) {
+	        return position;
+	    }
+
+	    public View getView(int position, View convertView, ViewGroup parent) {
+	        ImageView imageView = new ImageView(mContext);
+
+	        imageView.setImageResource(mImageIds[position]);
+	        imageView.setLayoutParams(new Gallery.LayoutParams(150, 100));
+	        //imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+	        imageView.setScaleType(ImageView.ScaleType.CENTER);
+			//iv.setScaleType(ImageView.ScaleType.CENTER_CROP);			
+			//iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+			//iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+	        //imageView.setBackgroundResource(mGalleryItemBackground);
+
+	        return imageView;
+	    }
+	}	
+	
+	
+	
+	
 }

@@ -40,9 +40,10 @@ public final class R {
     }
     public static final class id {
         public static final int gallery1=0x7f060002;
-        public static final int myGallery=0x7f060006;
+        public static final int myGallery=0x7f060007;
         public static final int mySelection=0x7f060000;
         public static final int puzzleGallery=0x7f060004;
+        public static final int puzzleGameGallery=0x7f060006;
         public static final int puzzleRecommend=0x7f060005;
         public static final int puzzleSelection=0x7f060003;
         public static final int switcher1=0x7f060001;

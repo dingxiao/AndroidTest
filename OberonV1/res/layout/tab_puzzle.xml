@@ -21,8 +21,16 @@
     android:id="@+id/puzzleRecommend" 
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-	    android:background="#ffefefef"
-	    android:textColor="#ff010101"
+	    android:background="#ff121212"
+	    android:textColor="#ffefefef"
     android:textSize="16px" android:textStyle="bold"/>  
-
+    
+<Gallery 
+        android:id="@+id/puzzleGameGallery" 
+        android:layout_width="fill_parent" 
+        android:layout_height="100dp" 
+        android:gravity="left" 
+        
+/>   
+    
 </LinearLayout>
