@@ -8,12 +8,15 @@ import com.psd.android.activity.TabOnTop20Activity.ImageAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Matrix;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
@@ -88,6 +91,65 @@ public class TabOnPuzzleActivity extends Activity {
 		        if (sideView != null && last != position){
 		           sideView.clearAnimation();
 		           sideView.setLayoutParams(new Gallery.LayoutParams(200, 100));
+		        }
+		        if (last > 0){
+		        	sideView = parent.findViewById(last - 1);
+		        
+			        if (sideView != null){
+			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(200, 100));
+			        	int padRight = sideView.getPaddingRight();
+			        	int padLeft = sideView.getPaddingLeft();
+			        	int padTop = sideView.getPaddingTop();
+			        	int padBot = sideView.getPaddingBottom();
+			        	sideView.setPadding(padLeft, padTop, padRight+20, padBot);
+			        }
+		        }
+		        if (last < myImageIds00.length-1){
+		        	sideView = parent.findViewById(last + 1);
+		        
+			        if (sideView != null){
+			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(200, 100));
+			        	int padRight = sideView.getPaddingRight();
+			        	int padLeft = sideView.getPaddingLeft();
+			        	int padTop = sideView.getPaddingTop();
+			        	int padBot = sideView.getPaddingBottom();
+			        	sideView.setPadding(padLeft+20, padTop, padRight, padBot);
+			        }
+		        }
+		        if (position > 0){
+		        	sideView = parent.findViewById(position - 1);
+		        
+			        if (sideView != null){
+				        ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(100, 100));
+			        	Matrix m = ((ImageView)sideView).getImageMatrix();
+			        	//m.postRotate(degrees);
+			        	//m.postTranslate(dx, dy);			        	
+				        //((ImageView)sideView).setImageMatrix(m);
+			        	//MarginLayoutParams la = (MarginLayoutParams) sideView.getLayoutParams();
+			        	//MarginLayoutParams la = (MarginLayoutParams) ((ImageView)sideView).getLayoutParams();
+			        	//left,top, right, bot
+			        	//if (la != null) la.setMargins(la.leftMargin, la.topMargin, la.rightMargin-20, la.bottomMargin);
+			        	int padRight = sideView.getPaddingRight();
+			        	int padLeft = sideView.getPaddingLeft();
+			        	int padTop = sideView.getPaddingTop();
+			        	int padBot = sideView.getPaddingBottom();
+			        	sideView.setPadding(padLeft, padTop, padRight-20, padBot);
+			        }
+		        }
+		        if (position < myImageIds00.length-1){
+		        	sideView = parent.findViewById(position + 1);
+		        
+			        if (sideView != null){
+			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(100, 100));
+			        	//MarginLayoutParams la = (MarginLayoutParams) sideView.getLayoutParams();
+			        	//left,top, right, bot
+			        	//la.setMargins(la.leftMargin-20, la.topMargin, la.rightMargin, la.bottomMargin);
+			        	int padRight = sideView.getPaddingRight();
+			        	int padLeft = sideView.getPaddingLeft();
+			        	int padTop = sideView.getPaddingTop();
+			        	int padBot = sideView.getPaddingBottom();
+			        	sideView.setPadding(padLeft-20, padTop, padRight, padBot);
+			        }
 		        }
 		        v.startAnimation(grow);
 		        v.setLayoutParams(new Gallery.LayoutParams(300, 150));
