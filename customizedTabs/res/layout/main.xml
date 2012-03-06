@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="45px"
+        android:padding="5dp">
+       	<TextView  
+	    android:id="@+id/mySelection" 
+	    android:layout_width="800px" 
+	    android:layout_height="wrap_content" 
+	    android:background="#ffdcdcdc"
+	    android:textColor="#ff121212"
+	    android:text="Welcome, Bob | My Queue | My Game"
+	    android:textSize="20px" android:textStyle="bold"/>  
+        <EditText
+                        android:id="@+id/searchText"
+                        android:layout_width="200px"
+                        android:layout_height="40px"
+                        />
+       	<Button
+                        android:id="@+id/searchButton"
+                        android:text="Search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40px"/>
+       	
+	    </LinearLayout>	 
+	<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@android:id/tabhost" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+			<View android:layout_width="fill_parent" android:layout_height="0.5dip"
+				android:background="#000" />
+			<TabWidget android:id="@android:id/tabs"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginLeft="0dip" android:layout_marginRight="0dip" />
+			<View android:layout_width="fill_parent" android:layout_height="2dip"
+				android:background="#696969" />
+			<View android:layout_width="fill_parent" android:layout_height="2dip"
+				android:background="#000" />
+			<FrameLayout android:id="@android:id/tabcontent"
+				android:layout_width="fill_parent" android:layout_height="fill_parent" />
+		</LinearLayout>
+	</TabHost>
+
+</LinearLayout>

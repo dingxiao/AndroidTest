@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+	android:background="#ffdcdcdc"
+    android:layout_height="fill_parent" >
+ 
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="left">
+   <!-- 2 columns -->
+ 	 <ImageView 
+	   android:id="@+id/test_image"
+	   android:src="@drawable/iplay_logo"
+	   android:layout_width="60px"
+	   android:layout_height="80px"
+	   />
+ 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="80px"
+    android:orientation="vertical" >
+
+ 	 <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:padding="1dp">
+       	<TextView  
+	    android:id="@+id/mySelection" 
+	    android:layout_width="900dp" 
+	    android:layout_height="wrap_content" 
+	    android:background="#ffdcdcdc"
+	    android:textColor="#ff121212"
+	    android:text=" Welcome, Bob | My Queue | My Game"
+	    android:textSize="20dp" android:textStyle="bold"/>  
+        <EditText
+                        android:id="@+id/searchText"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="4dp"
+                        />
+       	<Button
+                        android:id="@+id/searchButton"
+                        android:text="Search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"/>
+       	
+	    </LinearLayout>	 
+
+    <!-- display this button in 3rd column via layout_column(zero based), note android:layout_* attributes are LayoutParams. They are arguments to the parent-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp"
+    android:padding="2dp"
+        >
+ 
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"                       
+    		android:layout_marginLeft="-3dip"
+    		android:layout_marginRight="-3dip"
+            android:text="New" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"                       
+    		android:layout_marginLeft="-3dip"
+    		android:layout_marginRight="-3dip"
+            android:text="Top 20" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"                       
+    		android:layout_marginLeft="-3dip"
+    		android:layout_marginRight="-3dip"
+            android:text="Hidden Object" />
+         <Button
+            android:id="@+id/button7"            
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"                       
+    		android:layout_marginLeft="-3dip"
+    		android:layout_marginRight="-3dip"
+            android:text="Puzzle" />
+         <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"                       
+    		android:layout_marginLeft="-3dip"
+    		android:layout_marginRight="-3dip"
+            android:text="Time Management" />
+          <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"                       
+    		android:layout_marginLeft="-3dip"
+    		android:layout_marginRight="-3dip"
+            android:text="Adventure" />
+          <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"                       
+    		android:layout_marginLeft="-3dip"
+    		android:layout_marginRight="-3dip"
+            android:text="Mahjong" />
+        </LinearLayout>
+	</LinearLayout>
+ </TableRow>
+    
+    <!-- The Table Layout supports children of all types including LinearLayout, TextView, ImageButton, etc.  -->
+<Gallery 
+        android:id="@+id/puzzleGallery" 
+        android:layout_width="fill_parent" 
+        android:layout_height="200dp" 
+        android:gravity="center_vertical" 
+        />   
+    <TextView  
+    android:id="@+id/puzzleRecommend" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+	    android:background="#ff121212"
+	    android:textColor="#ffefefef"
+    android:textSize="16px" 
+    android:textStyle="bold"/>  
+
+<Gallery 
+        android:id="@+id/puzzleGameGallery" 
+        android:layout_width="fill_parent" 
+        android:layout_height="100dp" 
+        android:gravity="left" 
+        />   
+        
+ 
+</TableLayout>
+
+</LinearLayout>
