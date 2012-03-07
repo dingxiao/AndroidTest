@@ -60,36 +60,51 @@ public final class R {
         public static final int stat_sample=0x7f02001c;
     }
     public static final class id {
-        public static final int backToMainButton=0x7f070008;
-        public static final int backToMainButton2=0x7f070003;
-        public static final int button10=0x7f070014;
-        public static final int button8=0x7f070012;
-        public static final int button9=0x7f070013;
-        public static final int buttonHidden=0x7f070010;
-        public static final int buttonNew=0x7f07000e;
-        public static final int buttonPuzzle=0x7f070011;
-        public static final int buttonTop20=0x7f07000f;
-        public static final int displayItemInfo=0x7f070004;
-        public static final int displayItemLayout=0x7f070005;
+        public static final int backToMainButton=0x7f07000b;
+        public static final int backToMainButton2=0x7f070006;
+        public static final int button10=0x7f070017;
+        public static final int button8=0x7f070015;
+        public static final int button9=0x7f070016;
+        public static final int buttonHidden=0x7f070013;
+        public static final int buttonNew=0x7f070011;
+        public static final int buttonPuzzle=0x7f070014;
+        public static final int buttonTop20=0x7f070012;
+        public static final int cellPhone=0x7f070020;
+        public static final int displayItemInfo=0x7f070007;
+        public static final int displayItemLayout=0x7f070008;
+        public static final int email=0x7f070021;
+        public static final int employeeName=0x7f07001e;
+        public static final int firstName=0x7f07001b;
+        public static final int getPage=0x7f070023;
         public static final int id_title=0x7f070002;
         public static final int item_subtitle=0x7f070001;
         public static final int item_title=0x7f070000;
-        public static final int mySelection=0x7f07000b;
-        public static final int mylist=0x7f070007;
-        public static final int puzzleGallery=0x7f070015;
-        public static final int puzzleGameGallery=0x7f070017;
-        public static final int puzzleRecommend=0x7f070016;
-        public static final int searchButton=0x7f07000d;
-        public static final int searchText=0x7f07000c;
-        public static final int searchTextPassin=0x7f070006;
-        public static final int tableLayout1=0x7f070009;
-        public static final int test_image=0x7f07000a;
+        public static final int lastName=0x7f07001c;
+        public static final int mySelection=0x7f07000e;
+        public static final int mylist=0x7f07000a;
+        public static final int newPersonButton2=0x7f070005;
+        public static final int officePhone=0x7f07001f;
+        public static final int puzzleGallery=0x7f070018;
+        public static final int puzzleGameGallery=0x7f07001a;
+        public static final int puzzleRecommend=0x7f070019;
+        public static final int searchButton=0x7f070010;
+        public static final int searchButton2=0x7f070004;
+        public static final int searchText=0x7f07000f;
+        public static final int searchText2=0x7f070003;
+        public static final int searchTextPassin=0x7f070009;
+        public static final int tableLayout1=0x7f07000c;
+        public static final int test22=0x7f070022;
+        public static final int test_image=0x7f07000d;
+        public static final int title=0x7f07001d;
     }
     public static final class layout {
         public static final int display_listitem_layout=0x7f030000;
-        public static final int list_from_web=0x7f030001;
-        public static final int list_layout_arrayadapter=0x7f030002;
-        public static final int main=0x7f030003;
+        public static final int list_from_sqlite=0x7f030001;
+        public static final int list_from_web=0x7f030002;
+        public static final int list_layout_arrayadapter=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int name_list_item=0x7f030005;
+        public static final int user_details=0x7f030006;
     }
     public static final class string {
         public static final int app_name=0x7f060001;

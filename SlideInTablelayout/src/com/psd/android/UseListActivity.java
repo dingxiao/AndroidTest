@@ -3,12 +3,16 @@
  */
 package com.psd.android;
 
+
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -21,6 +25,9 @@ import android.view.View;
  */
 public class UseListActivity extends Activity {
  	TextView stringPassin;
+    protected SQLiteDatabase db;
+    protected Cursor cursor;
+    protected ListAdapter dbadapter;
 
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
@@ -31,6 +38,7 @@ public class UseListActivity extends Activity {
         
         stringPassin = (TextView) findViewById(R.id.searchTextPassin);		
         stringPassin.setText("Games with word " + searchText);
+        //db = (new DatabaseHelper(this)).getWritableDatabase();
        
 		if (searchText == null)
 			searchText = "game";
