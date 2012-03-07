@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <TextView  
+    android:id="@+id/searchTextPassin" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+	    android:background="#ff121212"
+	    android:textColor="#ffefefef"
+    android:textSize="20px" 
+    android:textStyle="bold"/>  
+    
+    <ListView
+        android:id="@+id/mylist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+       	<Button
+            android:id="@+id/backToMainButton"
+    		android:textColor="@color/white1"
+            android:text="Back to Main"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp" 
+            android:background="@drawable/black_small_button"                      
+        />
+    
+</LinearLayout>

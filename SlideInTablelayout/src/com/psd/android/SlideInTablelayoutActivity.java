@@ -4,6 +4,7 @@ package com.psd.android;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
@@ -14,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +54,36 @@ public class SlideInTablelayoutActivity extends Activity {
 		puzzleRecommend = (TextView) findViewById(R.id.puzzleRecommend);		
 		puzzleRecommend.setText("Recommended for you-- some games below");
        
+        //need to add button handler
+        final Button buttonSearch = (Button) findViewById(R.id.searchButton);
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+                   public void onClick(View v) {
+                        // Perform action on click
+                    	clickOnSearch(v);
+                    }
+        });
+        //need to add button handler
+        final Button buttonNew = (Button) findViewById(R.id.buttonNew);
+        buttonNew.setOnClickListener(new View.OnClickListener() {
+                 public void onClick(View v) {
+                      // Perform action on click
+                  	clickOnNew(v);
+                  }
+        });
+        final Button buttonTop20 = (Button) findViewById(R.id.buttonTop20);
+        buttonTop20.setOnClickListener(new View.OnClickListener() {
+                 public void onClick(View v) {
+                      // Perform action on click
+                  	clickOnTop20(v);
+                  }
+        });
+        final Button buttonHidden = (Button) findViewById(R.id.buttonHidden);
+        buttonHidden.setOnClickListener(new View.OnClickListener() {
+                 public void onClick(View v) {
+                      // Perform action on click
+                  	clickOnHide(v);
+                  }
+        });
         //for slide show
 		// Bind the gallery defined in the tab_puzzle.xml
 		// Apply a new (customized) ImageAdapter to it.
@@ -64,27 +96,6 @@ public class SlideInTablelayoutActivity extends Activity {
 		myGallery.setAdapter(imageAdp);
 		
 		myGallery.setOnItemSelectedListener(new OnItemSelectedListener() {
-			/*
-			   public void  onItemSelected  (AdapterView<?>  parent, View  v, int position, long id) {
-			        Animation grow = AnimationUtils.loadAnimation(TabOnPuzzleActivity.this, R.anim.grow);
-
-			        View sideView = parent.findViewById(position - 1);
-			        if (sideView != null)
-			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(200, 100));
-
-			        sideView = parent.findViewById(position + 1);
-			        if (sideView != null)
-			           ((ImageView)sideView).setLayoutParams(new Gallery.LayoutParams(200, 100));
-			        imageAdp.setSelectPos(position);
-			        v.startAnimation(grow);
-			        v.setLayoutParams(new Gallery.LayoutParams(300, 150));
-			    }
-
-			    public void  onNothingSelected  (AdapterView<?>  parent) {
-			        System.out.println("NOTHING SELECTED");
-
-			    }
-			*/
 		     private Animation grow = AnimationUtils.loadAnimation(SlideInTablelayoutActivity.this, R.anim.grow);
 		     private int last = currentPos;
 
@@ -186,6 +197,8 @@ public class SlideInTablelayoutActivity extends Activity {
 			
 			   public void  onItemSelected  (AdapterView<?>  parent, View  v, int position, long id) {
 		            Toast.makeText(SlideInTablelayoutActivity.this, "This is game " + position, Toast.LENGTH_SHORT).show();
+		            //save game index
+		            gameImageAdp.setSelected(position);
 			    }
 
 			    public void  onNothingSelected  (AdapterView<?>  parent) {
@@ -291,9 +304,16 @@ public class SlideInTablelayoutActivity extends Activity {
 	    private Context mContext;
 
 	    public int[] mImageIds = null;
-	   
+	    int selected = 0;
+	    
 
-	    public void setGameImageIds(int[] imgIds){
+	    public int getSelected() {
+			return selected;
+		}
+		public void setSelected(int selected) {
+			this.selected = selected;
+		}
+		public void setGameImageIds(int[] imgIds){
 	    	mImageIds = imgIds;
 	    }
 	    public SimpleImageAdapter(Context c) {
@@ -331,5 +351,43 @@ public class SlideInTablelayoutActivity extends Activity {
 	        return imageView;
 	    }
 	}	
+
 	
+
+	//button hadlers
+    public void clickOnSearch(View view) {
+    	Intent intent = new Intent(this, UseListActivity.class);
+    	//Cursor cursor = (Cursor) adapter.getItem(position);
+    	TextView searchText = (TextView) findViewById(R.id.searchText);	
+		String searchtext = searchText.getText().toString();
+    	intent.putExtra("searchText", searchtext);
+    	startActivity(intent);
+    }	
+    public void clickOnNew(View view) {
+    	// Enable Layout 2 and Disable Layout 1
+    	//Layout1 .setVisibility(View.GONE);
+    	//Layout2.setVisibility(View.VISIBLE);
+		//myGallery = (Gallery) findViewById(R.id.puzzleGallery);
+    	myGallery.setVisibility(View.VISIBLE);
+		//myGallery.setAdapter(null);
+    }	
+    public void clickOnTop20(View view) {
+    	Intent intent = new Intent(this, GetWebXmlActivity.class);
+    	//Cursor cursor = (Cursor) adapter.getItem(position);
+    	//TextView searchText = (TextView) findViewById(R.id.searchText);	
+		//String searchtext = searchText.getText().toString();
+    	//int position=gameImageAdp.getSelected();
+    	//intent.putExtra("gameId", position);
+    	startActivity(intent);
+    }	
+    public void clickOnHide(View view) {
+    	// Enable Layout 2 and Disable Layout 1
+    	//Layout1 .setVisibility(View.GONE);
+    	//Layout2.setVisibility(View.VISIBLE);
+		//myGallery = (Gallery) findViewById(R.id.puzzleGallery);
+    	myGallery.setVisibility(View.GONE);
+		//myGallery.setAdapter(null);
+    }	
+
+    
 }

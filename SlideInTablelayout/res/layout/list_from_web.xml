@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+ <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:layout_alignParentBottom="true"
+    style="@android:style/ButtonBar">
+
+	<Button
+            android:id="@+id/backToMainButton2"
+    		android:textColor="@color/white1"
+            android:text="Back to Main"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp" 
+            android:background="@drawable/black_small_button"                      
+        />
+       	<TextView  
+	    android:id="@+id/displayItemInfo" 
+	    android:layout_width="900dp" 
+	    android:layout_height="wrap_content" 
+	    android:background="#ffdcdcdc"
+	    android:textColor="#ff121212"
+	    android:text="Click your user to see more"
+	    android:textSize="20dp" android:textStyle="bold"/>  
+</LinearLayout>
+    
+<LinearLayout android:id="@+id/displayItemLayout"
+   android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<ListView 
+    android:background="#00000000"
+    android:id="@id/android:list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:drawSelectorOnTop="false" />
+
+</LinearLayout>
+    
+</LinearLayout>
