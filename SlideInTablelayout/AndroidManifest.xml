@@ -16,6 +16,8 @@
         <activity android:name="GetWebXmlActivity"></activity>
         <activity android:name="UseSqlite4list"></activity>
         <activity android:name="UserDetail"></activity>
+        <activity android:name="ShowGamesInSqlite"></activity>
+        <activity android:name="DownLoadFileActivity"></activity>
         <activity
             android:name=".SlideInTablelayoutActivity"
             android:label="@string/app_name" >
