@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+                <EditText
+                        android:id="@+id/searchText3"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:hint="type game"/>
+        
+                <Button
+                        android:id="@+id/searchButton3"
+                        android:text="Search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <Button
+                        android:id="@+id/newGameButton3"
+                        android:text="NewPerson"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+ 				<TextView  
+				android:id="@+id/gameResult"
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:background="#00000000" 
+				android:padding="2dp"
+				android:text="no choice"
+				android:textSize="13dp" />
+				
+               
+        </LinearLayout>
+
+	<ListView
+		android:id="@android:id/list"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"/>
+
+</LinearLayout>

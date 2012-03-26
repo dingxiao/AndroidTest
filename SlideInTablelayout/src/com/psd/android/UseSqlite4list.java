@@ -79,9 +79,9 @@ public class UseSqlite4list extends ListActivity {
         // || is the concatenation operation in SQLite
                 //cursor = db.rawQuery("SELECT _id, firstName, lastName, title FROM employee WHERE firstName || ' ' || lastName LIKE ?", 
                   //                              new String[]{"%" + searchText.getText().toString() + "%"});
-    	//Intent intent = new Intent(this, UserDetailNewPerson.class);
+    	Intent intent = new Intent(this, ShowGamesInSqlite.class);
     	//Cursor cursor = (Cursor) adapter.getItem(position);
     	//intent.putExtra("EMPLOYEE_ID", cursor.getInt(cursor.getColumnIndex("_id")));
-    	//startActivity(intent);
+    	startActivity(intent);
     }
 }

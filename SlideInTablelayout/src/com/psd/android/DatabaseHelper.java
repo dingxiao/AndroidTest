@@ -14,13 +14,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String DATABASE_NAME = "psd_user_db";
        
         public DatabaseHelper(Context context) {
-                super(context, DATABASE_NAME, null, 1);
+                super(context, DATABASE_NAME, null, 2);
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
                 /*
-                 * Create the employee table and populate it with sample data.
+                 * Create the a table and populate it with sample data.
                  * In step 6, we will move these hardcoded statements to an XML document.
                  */
                 String sql = "CREATE TABLE IF NOT EXISTS game4user (" +
@@ -33,7 +33,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                                                 "email TEXT, " +
                                                 "managerId INTEGER)";
                 db.execSQL(sql);
-               
+                
+                //table for game
+                String sql2 = "CREATE TABLE IF NOT EXISTS game4list (" +
+                "_id INTEGER PRIMARY KEY, " +
+                "title TEXT, " +
+                "score INTEGER)";
+                
+                db.execSQL(sql2);
+                ContentValues values2 = new ContentValues();
+
+                values2.put("_id", "1234");
+                values2.put("title", "not a game");
+                values2.put("score", "4321");
+                db.insert("game4list", "notagame", values2);
+             
                 ContentValues values = new ContentValues();
 
                 values.put("firstName", "John");
@@ -102,8 +116,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-                db.execSQL("DROP TABLE IF EXISTS game4users");
-                onCreate(db);
+            db.execSQL("DROP TABLE IF EXISTS game4users");
+            db.execSQL("DROP TABLE IF EXISTS game4list");
+            onCreate(db);
         }
        
 }

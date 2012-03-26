@@ -91,6 +91,13 @@ public class SlideInTablelayoutActivity extends Activity {
                   	clickOnPuzzle(v);
                   }
         });
+        final Button button8 = (Button) findViewById(R.id.button8);
+        button8.setOnClickListener(new View.OnClickListener() {
+                 public void onClick(View v) {
+                      // Perform action on click
+                  	clickOn8(v);
+                  }
+        });
         //for slide show
 		// Bind the gallery defined in the tab_puzzle.xml
 		// Apply a new (customized) ImageAdapter to it.
@@ -398,6 +405,14 @@ public class SlideInTablelayoutActivity extends Activity {
 
     public void clickOnPuzzle(View view) {
     	Intent intent = new Intent(this, UseSqlite4list.class);
+    	//Cursor cursor = (Cursor) adapter.getItem(position);
+    	TextView searchText = (TextView) findViewById(R.id.searchText);	
+		String searchtext = searchText.getText().toString();
+    	intent.putExtra("searchText", searchtext);
+    	startActivity(intent);
+    }	
+    public void clickOn8(View view) {
+    	Intent intent = new Intent(this, DownLoadFileActivity.class);
     	//Cursor cursor = (Cursor) adapter.getItem(position);
     	TextView searchText = (TextView) findViewById(R.id.searchText);	
 		String searchtext = searchText.getText().toString();

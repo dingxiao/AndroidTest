@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is a test for down load an imgge from the web" />
+
+    <TextView
+        android:id="@+id/textView2download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type image url below"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/editText4download"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button4download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+    <ImageView android:id="@+id/img4download" 
+        android:contentDescription="image down loaded"
+        android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:layout_gravity="center" />
+
+
+</LinearLayout>
